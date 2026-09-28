@@ -2,6 +2,8 @@
 
 A tiny, private screen recorder that runs entirely in your browser. Select a screen or window, record it, and save the video locally. Nothing is uploaded.
 
+The app is intentionally dependency-free: semantic HTML, standalone CSS, and a small JavaScript module.
+
 ## Use it
 
 Open **[cdracars.github.io/local-screen-recorder](https://cdracars.github.io/local-screen-recorder/)**, click **Start recording**, choose a screen or window, and click **Stop and save** when finished.

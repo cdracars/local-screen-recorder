@@ -5,23 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="A private, browser-based screen recorder. Record locally with no uploads.">
   <title>Local Screen Recorder</title>
-  <style>
-    :root { color-scheme: dark; font-family: system-ui, sans-serif; }
-    * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #111827; color: #f9fafb; }
-    main { width: min(560px, calc(100% - 40px)); padding: 32px; border: 1px solid #374151; border-radius: 18px; background: #1f2937; box-shadow: 0 20px 60px #0008; }
-    h1 { margin: 0 0 10px; font-size: 28px; }
-    p { color: #cbd5e1; line-height: 1.5; }
-    label { display: flex; gap: 10px; align-items: center; margin: 20px 0; color: #e5e7eb; }
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
-    button { border: 0; border-radius: 10px; padding: 12px 18px; font: inherit; font-weight: 700; cursor: pointer; }
-    #start { background: #22c55e; color: #052e16; }
-    #stop { background: #ef4444; color: white; }
-    button:disabled { opacity: .45; cursor: not-allowed; }
-    #status { min-height: 24px; margin-top: 20px; color: #93c5fd; }
-    small { display: block; margin-top: 22px; color: #94a3b8; }
-    a { color: #93c5fd; }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <main>
@@ -35,82 +19,6 @@
     <div id="status" role="status" aria-live="polite">Ready.</div>
     <small>Keep this tab open while recording. Your browser saves the finished video to its Downloads folder.</small>
   </main>
-  <script>
-    const start = document.querySelector('#start');
-    const stop = document.querySelector('#stop');
-    const status = document.querySelector('#status');
-    const audio = document.querySelector('#audio');
-    let recorder;
-    let stream;
-    let chunks = [];
-
-    const formats = [
-      { mimeType: 'video/webm;codecs=vp9,opus', extension: 'webm' },
-      { mimeType: 'video/webm;codecs=vp8,opus', extension: 'webm' },
-      { mimeType: 'video/webm', extension: 'webm' },
-      { mimeType: 'video/mp4', extension: 'mp4' }
-    ];
-
-    function supportedFormat() {
-      return formats.find(format => MediaRecorder.isTypeSupported(format.mimeType));
-    }
-
-    function finish() {
-      if (recorder && recorder.state !== 'inactive') recorder.stop();
-    }
-
-    start.addEventListener('click', async () => {
-      try {
-        if (!navigator.mediaDevices?.getDisplayMedia || !window.MediaRecorder) {
-          throw new Error('This browser does not support screen recording. Try a current Firefox, Chrome, Edge, or Safari release.');
-        }
-
-        stream = await navigator.mediaDevices.getDisplayMedia({
-          video: { frameRate: 30 },
-          audio: audio.checked
-        });
-
-        const format = supportedFormat();
-        const options = format ? { mimeType: format.mimeType } : undefined;
-        chunks = [];
-        recorder = new MediaRecorder(stream, options);
-
-        recorder.addEventListener('dataavailable', event => {
-          if (event.data.size) chunks.push(event.data);
-        });
-
-        recorder.addEventListener('stop', () => {
-          const mimeType = recorder.mimeType || format?.mimeType || 'video/webm';
-          const extension = mimeType.includes('mp4') ? 'mp4' : 'webm';
-          const blob = new Blob(chunks, { type: mimeType });
-          const url = URL.createObjectURL(blob);
-          const link = document.createElement('a');
-          link.href = url;
-          link.download = `screen-recording-${new Date().toISOString().replaceAll(':', '-')}.${extension}`;
-          link.click();
-          setTimeout(() => URL.revokeObjectURL(url), 60_000);
-          stream?.getTracks().forEach(track => track.stop());
-          start.disabled = false;
-          stop.disabled = true;
-          status.textContent = `Saved ${extension.toUpperCase()} recording to your Downloads folder.`;
-        });
-
-        stream.getVideoTracks()[0].addEventListener('ended', finish);
-        recorder.start(1000);
-        start.disabled = true;
-        stop.disabled = false;
-        status.textContent = 'Recording…';
-      } catch (error) {
-        stream?.getTracks().forEach(track => track.stop());
-        start.disabled = false;
-        stop.disabled = true;
-        status.textContent = error.name === 'NotAllowedError'
-          ? 'Screen selection was cancelled or permission was denied.'
-          : `Could not start: ${error.message}`;
-      }
-    });
-
-    stop.addEventListener('click', finish);
-  </script>
+  <script type="module" src="recorder.js"></script>
 </body>
 </html>
