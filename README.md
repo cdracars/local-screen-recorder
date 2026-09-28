@@ -4,7 +4,7 @@ A tiny, private screen recorder that runs entirely in your browser. Select a scr
 
 ## Use it
 
-Open the GitHub Pages site, click **Start recording**, choose a screen or window, and click **Stop and save** when finished.
+Open **[cdracars.github.io/local-screen-recorder](https://cdracars.github.io/local-screen-recorder/)**, click **Start recording**, choose a screen or window, and click **Stop and save** when finished.
 
 Current Firefox, Chrome, Edge, and Safari releases are supported where their Screen Capture and MediaRecorder implementations allow it. System-audio capture varies by browser and operating system.
 
