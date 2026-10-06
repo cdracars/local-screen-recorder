@@ -84,3 +84,18 @@ small {
   margin-top: 22px;
   color: #94a3b8;
 }
+
+.support-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  color: #bfdbfe;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-underline-offset: 0.25em;
+}
+
+.support-link:hover { color: #ffffff; }
+.support-link:focus-visible { outline: 2px solid #93c5fd; outline-offset: 4px; border-radius: 4px; }
+.support-link img { width: 24px; height: auto; }
