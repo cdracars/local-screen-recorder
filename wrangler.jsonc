@@ -1,0 +1,14 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "local-screen-recorder",
+  "compatibility_date": "2026-10-06",
+  "assets": {
+    "directory": "."
+  },
+  "routes": [
+    {
+      "pattern": "screen-recorder.dracars.com",
+      "custom_domain": true
+    }
+  ]
+}
