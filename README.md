@@ -6,7 +6,7 @@ The app is intentionally dependency-free: semantic HTML, standalone CSS, and a s
 
 ## Use it
 
-Open **[cdracars.github.io/local-screen-recorder](https://cdracars.github.io/local-screen-recorder/)**, click **Start recording**, choose a screen or window, and click **Stop and save** when finished.
+Open **[screen-recorder.dracars.com](https://screen-recorder.dracars.com/)**, click **Start recording**, choose a screen or window, and click **Stop and save** when finished.
 
 Current Firefox, Chrome, Edge, and Safari releases are supported where their Screen Capture and MediaRecorder implementations allow it. System-audio capture varies by browser and operating system.
 
@@ -19,6 +19,14 @@ python3 -m http.server 8765
 ```
 
 Then open <http://127.0.0.1:8765>.
+
+## Deployment
+
+Deploy the static app to its Cloudflare Worker with:
+
+```sh
+npx wrangler@4.20.0 deploy
+```
 
 ## Privacy
 
