@@ -32,6 +32,11 @@ npx wrangler@4.20.0 deploy
 
 All recording and file creation happen in the browser on your device. The app has no server-side code, analytics, or upload feature.
 
+## Support
+
+If Local Screen Recorder is useful to you, you can support its continued
+upkeep on [Ko-fi](https://ko-fi.com/cdracars66494).
+
 ## License
 
 [MIT](LICENSE)
