@@ -85,17 +85,26 @@ small {
   color: #94a3b8;
 }
 
+.site-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.source-link,
 .support-link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 22px;
   color: #bfdbfe;
   font-size: 0.875rem;
   font-weight: 700;
   text-underline-offset: 0.25em;
 }
 
+.source-link:hover,
 .support-link:hover { color: #ffffff; }
+.source-link:focus-visible,
 .support-link:focus-visible { outline: 2px solid #93c5fd; outline-offset: 4px; border-radius: 4px; }
 .support-link img { width: 24px; height: auto; }
