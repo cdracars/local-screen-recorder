@@ -92,7 +92,6 @@ small {
   margin-top: 22px;
 }
 
-.source-link,
 .support-link {
   display: inline-flex;
   align-items: center;
@@ -103,8 +102,26 @@ small {
   text-underline-offset: 0.25em;
 }
 
-.source-link:hover,
 .support-link:hover { color: #ffffff; }
-.source-link:focus-visible,
 .support-link:focus-visible { outline: 2px solid #93c5fd; outline-offset: 4px; border-radius: 4px; }
 .support-link img { width: 24px; height: auto; }
+
+.github-corner {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  width: 82px;
+  height: 82px;
+  color: #f9fafb;
+}
+
+.github-corner svg { position: absolute; top: 0; right: 0; width: 100%; height: 100%; fill: #166534; color: #f9fafb; }
+.github-corner:hover svg { fill: #22c55e; }
+.github-corner:focus-visible { outline: 2px solid #93c5fd; outline-offset: -5px; }
+.github-corner .octo-arm { fill: currentColor; transform-origin: 130px 106px; }
+.github-corner .octo-body { fill: currentColor; }
+.github-corner:hover .octo-arm { animation: octo-wave 560ms ease-in-out; }
+@keyframes octo-wave { 0%, 100% { transform: rotate(0); } 20%, 60% { transform: rotate(-24deg); } 40%, 80% { transform: rotate(10deg); } }
+
+@media (max-width: 560px) { .github-corner { width: 62px; height: 62px; } }
