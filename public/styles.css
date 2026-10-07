@@ -85,6 +85,29 @@ small {
   color: #94a3b8;
 }
 
+.recording-notes {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid #374151;
+  color: #d1d5db;
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
+.recording-notes h2 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.recording-notes ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.recording-notes li + li {
+  margin-top: 6px;
+}
+
 .site-links {
   display: flex;
   flex-wrap: wrap;
