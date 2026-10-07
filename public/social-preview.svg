@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#111827"/><circle cx="1030" cy="100" r="260" fill="#1f2937"/><path d="M0 510h1200v120H0z" fill="#17221f"/>
+  <g font-family="Arial,sans-serif"><text x="80" y="110" fill="#86efac" font-size="24" font-weight="700" letter-spacing="4">PRIVATE · IN YOUR BROWSER</text><text x="80" y="220" fill="#f9fafb" font-size="70" font-weight="700">Local Screen Recorder</text><text x="80" y="286" fill="#d1d5db" font-size="32">Record a screen or window. Save it locally.</text>
+  <g transform="translate(825 335)"><rect x="0" y="0" width="270" height="150" rx="20" fill="#0b1220" stroke="#4b5563" stroke-width="5"/><circle cx="135" cy="75" r="38" fill="#ef4444"/><rect x="98" y="171" width="74" height="12" rx="6" fill="#6b7280"/><path d="M135 150v21" stroke="#6b7280" stroke-width="10"/></g>
+  <text x="80" y="566" fill="#f9fafb" font-size="26" font-weight="700">Nothing is uploaded · Save to your device</text><text x="1110" y="566" fill="#86efac" font-size="20" text-anchor="end">dracars.com</text></g>
+</svg>
